@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/lshtar13/gRPC-chat/chat";
+
+package chat;
+
+service Chat {
+    rpc BasicSend(Msg) returns (Ack) {}
+    rpc ContSend(stream Msg) returns (Ack){}
+}
+
+message Msg{
+    string msg = 1;
+    string sendTime = 2;
+}
+
+message Ack {}
